@@ -14,7 +14,7 @@
   ],
   "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
   "download": {
-    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/plugins-v1.0.0/dtc-report-pdf-1.0.0.zip",
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.1/dtc-report-pdf-1.0.0.zip",
     "sha256": "4e17aef451a744f33e10daa0eb7ddee0a0192b76349a93b7529235f51a3ffff1",
     "sizeBytes": 1922
   },

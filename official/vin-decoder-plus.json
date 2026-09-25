@@ -14,7 +14,7 @@
   ],
   "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
   "download": {
-    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/plugins-v1.0.0/vin-decoder-plus-1.0.0.zip",
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.1/vin-decoder-plus-1.0.0.zip",
     "sha256": "b99d066381a63d27cc009aa1cb0083f90346964cfcbe927e67cf0bbbe00dd06b",
     "sizeBytes": 2115
   },

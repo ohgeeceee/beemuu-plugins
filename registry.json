@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T08:25:47.838919+00:00",
+  "generatedAt": "2026-09-25T09:01:25.219546+00:00",
   "plugins": [
     {
       "id": "dtc-report-pdf",
@@ -18,7 +18,7 @@
       ],
       "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
       "download": {
-        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/plugins-v1.0.0/dtc-report-pdf-1.0.0.zip",
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.1/dtc-report-pdf-1.0.0.zip",
         "sha256": "4e17aef451a744f33e10daa0eb7ddee0a0192b76349a93b7529235f51a3ffff1",
         "sizeBytes": 1922
       },
@@ -45,7 +45,7 @@
       ],
       "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
       "download": {
-        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/plugins-v1.0.0/live-data-logger-1.0.0.zip",
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.1/live-data-logger-1.0.0.zip",
         "sha256": "ba8bfd31ec4de5e6a1482082b51684eee7ac86589e7744d992f40a9d9e0e31c3",
         "sizeBytes": 1559
       },
@@ -72,7 +72,7 @@
       ],
       "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
       "download": {
-        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/plugins-v1.0.0/vin-decoder-plus-1.0.0.zip",
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.1/vin-decoder-plus-1.0.0.zip",
         "sha256": "b99d066381a63d27cc009aa1cb0083f90346964cfcbe927e67cf0bbbe00dd06b",
         "sizeBytes": 2115
       },
