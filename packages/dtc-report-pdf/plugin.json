@@ -1,0 +1,7 @@
+{
+  "id": "dtc-report-pdf",
+  "name": "DTC Report PDF",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["read-vin", "read-dtc"]
+}

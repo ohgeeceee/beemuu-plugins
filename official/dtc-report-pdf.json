@@ -6,14 +6,22 @@
   "official": true,
   "description": "Export a full diagnostic trouble-code scan as a clean, shareable PDF report with vehicle info and freeze-frame data.",
   "category": "reporting",
-  "tags": ["dtc", "pdf", "export", "report"],
+  "tags": [
+    "dtc",
+    "pdf",
+    "export",
+    "report"
+  ],
   "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
   "download": {
-    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/dtc-report-pdf-v1.0.0/dtc-report-pdf-1.0.0.zip",
-    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-    "sizeBytes": 0
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/plugins-v1.0.0/dtc-report-pdf-1.0.0.zip",
+    "sha256": "4e17aef451a744f33e10daa0eb7ddee0a0192b76349a93b7529235f51a3ffff1",
+    "sizeBytes": 1922
   },
   "minAppVersion": "2.2.0",
   "license": "GPL-3.0-only",
-  "capabilities": ["read-vin", "read-dtc"]
+  "capabilities": [
+    "read-vin",
+    "read-dtc"
+  ]
 }

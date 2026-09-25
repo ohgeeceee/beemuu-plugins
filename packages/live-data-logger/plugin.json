@@ -1,0 +1,7 @@
+{
+  "id": "live-data-logger",
+  "name": "Live Data Logger",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["live-data", "filesystem"]
+}
