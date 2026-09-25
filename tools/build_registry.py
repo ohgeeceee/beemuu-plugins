@@ -3,7 +3,6 @@
 
 Usage: python3 tools/build_registry.py
 """
-import datetime
 import json
 import os
 
@@ -16,7 +15,6 @@ def main():
     manifests = validate.main()  # exits non-zero if anything is invalid
     registry = {
         "schemaVersion": 1,
-        "generatedAt": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "plugins": sorted(manifests, key=lambda m: m["id"]),
     }
     with open(OUT, "w", encoding="utf-8") as f:
