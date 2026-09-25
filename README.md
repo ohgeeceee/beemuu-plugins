@@ -3,7 +3,7 @@
 The official plugin marketplace for [Beemuu](https://github.com/ohgeeceee/beemuu) —
 the open-source BMW diagnostics tool.
 
-**Browse the marketplace:** https://ohgeeceee.github.io/beemuu-plugins/
+**Browse the marketplace:** https://plugins.beemuu.com/
 
 ## What is this?
 
@@ -60,7 +60,7 @@ Categories: `diagnostics`, `coding`, `reporting`, `data`, `ui`, `tools`.
 `registry.json` is served statically and can be consumed by the Beemuu app:
 
 ```
-GET https://ohgeeceee.github.io/beemuu-plugins/registry.json
+GET https://plugins.beemuu.com/registry.json
 ```
 
 ## License
