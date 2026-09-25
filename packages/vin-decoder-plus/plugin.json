@@ -1,0 +1,7 @@
+{
+  "id": "vin-decoder-plus",
+  "name": "VIN Decoder Plus",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["read-vin"]
+}
