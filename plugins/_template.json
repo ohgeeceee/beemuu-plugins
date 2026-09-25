@@ -1,0 +1,19 @@
+{
+  "id": "my-plugin-slug",
+  "name": "My Plugin",
+  "version": "1.0.0",
+  "author": "your-github-username",
+  "official": false,
+  "description": "One or two sentences: what it does and why someone would install it.",
+  "category": "tools",
+  "tags": ["example"],
+  "homepage": "https://github.com/your-github-username/your-plugin-repo",
+  "download": {
+    "url": "https://github.com/your-github-username/your-plugin-repo/releases/download/v1.0.0/my-plugin-1.0.0.zip",
+    "sha256": "replace-with-sha256-of-your-zip-64-lowercase-hex-chars00",
+    "sizeBytes": 0
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": ["read-dtc"]
+}

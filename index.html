@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beemuu Plugin Marketplace</title>
+<meta name="description" content="Community and official plugins for Beemuu, the open-source BMW diagnostics tool.">
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #30363d;
+    --text: #e6edf3; --muted: #8b949e; --accent: #4da3ff; --green: #3fb950;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  a { color: var(--accent); text-decoration: none; }
+  header { border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem 2rem; text-align: center; }
+  header h1 { font-size: 2rem; letter-spacing: -0.5px; }
+  header h1 span { color: var(--accent); }
+  header p { color: var(--muted); margin-top: .5rem; }
+  nav { margin-top: 1.25rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  nav a { border: 1px solid var(--border); border-radius: 8px; padding: .5rem 1rem; color: var(--text); background: var(--panel); font-size: .9rem; }
+  nav a:hover { border-color: var(--accent); }
+  main { max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .controls { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .controls input, .controls select {
+    background: var(--panel); border: 1px solid var(--border); color: var(--text);
+    border-radius: 8px; padding: .55rem .8rem; font-size: .95rem;
+  }
+  .controls input { flex: 1; min-width: 220px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1rem; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .5rem; }
+  .card h3 { font-size: 1.05rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+  .badge { font-size: .68rem; font-weight: 600; padding: .12rem .45rem; border-radius: 999px; text-transform: uppercase; letter-spacing: .4px; }
+  .badge.official { background: rgba(63,185,80,.15); color: var(--green); border: 1px solid rgba(63,185,80,.4); }
+  .badge.community { background: rgba(77,163,255,.12); color: var(--accent); border: 1px solid rgba(77,163,255,.35); }
+  .card .desc { color: var(--muted); font-size: .9rem; flex: 1; }
+  .meta { font-size: .78rem; color: var(--muted); display: flex; gap: .8rem; flex-wrap: wrap; }
+  .tags { display: flex; gap: .35rem; flex-wrap: wrap; }
+  .tag { font-size: .72rem; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: .08rem .5rem; }
+  .actions { display: flex; gap: .6rem; margin-top: .35rem; }
+  .btn { font-size: .85rem; padding: .45rem .9rem; border-radius: 7px; border: 1px solid var(--border); background: var(--bg); color: var(--text); cursor: pointer; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #04101f; font-weight: 600; }
+  .btn.primary:hover { filter: brightness(1.1); }
+  #empty { color: var(--muted); text-align: center; padding: 3rem 0; display: none; }
+  .submit-cta { margin-top: 3rem; text-align: center; border: 1px dashed var(--border); border-radius: 10px; padding: 2rem; color: var(--muted); }
+  .submit-cta a { font-weight: 600; }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem; text-align: center; color: var(--muted); font-size: .8rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Beemuu <span>Plugin Marketplace</span></h1>
+  <p>Community and official plugins for Beemuu — the open-source BMW diagnostics tool.</p>
+  <nav>
+    <a href="https://beemuu.com">beemuu.com</a>
+    <a href="https://github.com/ohgeeceee/beemuu">Get the app</a>
+    <a href="https://github.com/ohgeeceee/beemuu-plugins/blob/main/CONTRIBUTING.md">Submit a plugin</a>
+    <a href="registry.json">registry.json (API)</a>
+  </nav>
+</header>
+<main>
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search plugins…" aria-label="Search plugins">
+    <select id="category" aria-label="Filter by category">
+      <option value="">All categories</option>
+      <option value="diagnostics">Diagnostics</option>
+      <option value="coding">Coding</option>
+      <option value="reporting">Reporting</option>
+      <option value="data">Data</option>
+      <option value="ui">UI</option>
+      <option value="tools">Tools</option>
+    </select>
+    <select id="source" aria-label="Filter by source">
+      <option value="">Official + Community</option>
+      <option value="official">Official only</option>
+      <option value="community">Community only</option>
+    </select>
+  </div>
+  <div id="grid" class="grid"></div>
+  <div id="empty">No plugins match your filters.</div>
+  <div class="submit-cta">
+    Built something for Beemuu?
+    <a href="https://github.com/ohgeeceee/beemuu-plugins/blob/main/CONTRIBUTING.md">Submit your plugin</a>
+    — one JSON manifest and a pull request is all it takes.
+  </div>
+</main>
+<footer>
+  Beemuu is open-source (GPL-3.0). Marketplace registry served from
+  <a href="https://github.com/ohgeeceee/beemuu-plugins">github.com/ohgeeceee/beemuu-plugins</a>.
+</footer>
+<script>
+(function () {
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+  const search = document.getElementById('search');
+  const category = document.getElementById('category');
+  const source = document.getElementById('source');
+  let plugins = [];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const cat = category.value;
+    const src = source.value;
+    const filtered = plugins.filter(p => {
+      if (cat && p.category !== cat) return false;
+      if (src === 'official' && !p.official) return false;
+      if (src === 'community' && p.official) return false;
+      if (q) {
+        const hay = [p.name, p.description, p.author, (p.tags || []).join(' ')].join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+    empty.style.display = filtered.length ? 'none' : 'block';
+    grid.innerHTML = filtered.map(p => `
+      <div class="card">
+        <h3>${esc(p.name)}
+          <span class="badge ${p.official ? 'official' : 'community'}">${p.official ? 'Official' : 'Community'}</span>
+        </h3>
+        <div class="desc">${esc(p.description)}</div>
+        <div class="tags">${(p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+        <div class="meta">
+          <span>v${esc(p.version)}</span>
+          <span>by ${esc(p.author)}</span>
+          <span>${esc(p.category)}</span>
+          <span>app ≥ ${esc(p.minAppVersion)}</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="${esc(p.download.url)}" rel="noopener">Download</a>
+          ${p.homepage ? `<a class="btn" href="${esc(p.homepage)}" rel="noopener">Details</a>` : ''}
+        </div>
+      </div>`).join('');
+  }
+
+  fetch('registry.json')
+    .then(r => { if (!r.ok) throw new Error('registry fetch failed'); return r.json(); })
+    .then(data => { plugins = data.plugins || []; render(); })
+    .catch(() => { grid.innerHTML = '<p style="color:var(--muted)">Could not load the plugin registry. Try again later.</p>'; });
+
+  search.addEventListener('input', render);
+  category.addEventListener('change', render);
+  source.addEventListener('change', render);
+})();
+</script>
+</body>
+</html>

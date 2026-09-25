@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Beemuu Plugin Manifest",
+  "type": "object",
+  "required": ["id", "name", "version", "author", "description", "category", "download", "minAppVersion", "license"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,63}$",
+      "description": "Unique slug, lowercase kebab-case. Must match the manifest filename."
+    },
+    "name": { "type": "string", "minLength": 2, "maxLength": 80 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "author": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "official": { "type": "boolean", "default": false },
+    "description": { "type": "string", "minLength": 10, "maxLength": 300 },
+    "category": { "type": "string", "enum": ["diagnostics", "coding", "reporting", "data", "ui", "tools"] },
+    "tags": { "type": "array", "items": { "type": "string", "maxLength": 24 }, "maxItems": 8 },
+    "homepage": { "type": "string", "format": "uri" },
+    "download": {
+      "type": "object",
+      "required": ["url", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "sizeBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "minAppVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "license": { "type": "string", "maxLength": 40 },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["read-vin", "read-dtc", "clear-dtc", "live-data", "coding-write", "ecu-flash", "network", "filesystem"] },
+      "description": "Declared capabilities. coding-write / ecu-flash require manual safety review."
+    }
+  }
+}

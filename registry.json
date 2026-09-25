@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-25T07:28:42.839860+00:00",
+  "plugins": [
+    {
+      "id": "dtc-report-pdf",
+      "name": "DTC Report PDF",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Export a full diagnostic trouble-code scan as a clean, shareable PDF report with vehicle info and freeze-frame data.",
+      "category": "reporting",
+      "tags": [
+        "dtc",
+        "pdf",
+        "export",
+        "report"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/dtc-report-pdf-v1.0.0/dtc-report-pdf-1.0.0.zip",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "sizeBytes": 0
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "read-vin",
+        "read-dtc"
+      ]
+    },
+    {
+      "id": "live-data-logger",
+      "name": "Live Data Logger",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Record live sensor streams from any ECU to CSV with timestamps, replay sessions, and overlay multiple captures for comparison.",
+      "category": "data",
+      "tags": [
+        "live-data",
+        "csv",
+        "logging",
+        "replay"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/live-data-logger-v1.0.0/live-data-logger-1.0.0.zip",
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "sizeBytes": 0
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "live-data",
+        "filesystem"
+      ]
+    },
+    {
+      "id": "vin-decoder-plus",
+      "name": "VIN Decoder Plus",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Decode BMW VINs into full build sheets: model, engine, gearbox, paint, options list (S-codes) and production date, offline.",
+      "category": "tools",
+      "tags": [
+        "vin",
+        "decoder",
+        "options",
+        "build-sheet"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/vin-decoder-plus-v1.0.0/vin-decoder-plus-1.0.0.zip",
+        "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "sizeBytes": 0
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "read-vin"
+      ]
+    }
+  ]
+}

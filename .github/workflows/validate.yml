@@ -1,0 +1,21 @@
+name: validate-registry
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate manifests
+        run: python3 tools/validate.py
+      - name: Rebuild registry and check it is up to date
+        run: |
+          python3 tools/build_registry.py
+          git diff --exit-code registry.json || { echo "::error::registry.json is stale. Run 'python3 tools/build_registry.py' and commit the result."; exit 1; }

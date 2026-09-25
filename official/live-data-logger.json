@@ -1,0 +1,19 @@
+{
+  "id": "live-data-logger",
+  "name": "Live Data Logger",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "Record live sensor streams from any ECU to CSV with timestamps, replay sessions, and overlay multiple captures for comparison.",
+  "category": "data",
+  "tags": ["live-data", "csv", "logging", "replay"],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/live-data-logger-v1.0.0/live-data-logger-1.0.0.zip",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "sizeBytes": 0
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": ["live-data", "filesystem"]
+}

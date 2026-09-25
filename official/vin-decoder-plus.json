@@ -1,0 +1,19 @@
+{
+  "id": "vin-decoder-plus",
+  "name": "VIN Decoder Plus",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "Decode BMW VINs into full build sheets: model, engine, gearbox, paint, options list (S-codes) and production date, offline.",
+  "category": "tools",
+  "tags": ["vin", "decoder", "options", "build-sheet"],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/vin-decoder-plus-v1.0.0/vin-decoder-plus-1.0.0.zip",
+    "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "sizeBytes": 0
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": ["read-vin"]
+}
