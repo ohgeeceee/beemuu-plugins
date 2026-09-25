@@ -3,7 +3,6 @@
 
 Usage: python3 tools/build_registry.py
 """
-import datetime
 import json
 import os
 
@@ -29,8 +28,7 @@ def main():
         generated_at = existing.get("generatedAt", generated_at)
     registry = {
         "schemaVersion": 1,
-        "generatedAt": generated_at,
-        "plugins": plugins,
+        "plugins": sorted(manifests, key=lambda m: m["id"]),
     }
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(registry, f, indent=2)
