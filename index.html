@@ -16,6 +16,8 @@
   header { border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem 2rem; text-align: center; }
   header h1 { font-size: 2rem; letter-spacing: -0.5px; }
   header h1 span { color: var(--accent); }
+  .release { margin-top: 1rem; font-size: .9rem; color: var(--muted); }
+  .release strong { color: var(--accent); font-weight: 600; }
   header p { color: var(--muted); margin-top: .5rem; }
   nav { margin-top: 1.25rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   nav a { border: 1px solid var(--border); border-radius: 8px; padding: .5rem 1rem; color: var(--text); background: var(--panel); font-size: .9rem; }
@@ -51,11 +53,16 @@
 <header>
   <h1>Beemuu <span>Plugin Marketplace</span></h1>
   <p>Community and official plugins for Beemuu — the open-source BMW diagnostics tool.</p>
+  <p class="release" id="release-band" data-app-tag="v3.7.0">
+    Plugins for <strong id="app-release-version">BeeEmUu v3.7.0</strong>
+    (<a id="app-release-link" href="https://github.com/ohgeeceee/beemuu/releases/tag/v3.7.0">release notes</a>)
+  </p>
   <nav>
     <a href="https://beemuu.com">beemuu.com</a>
-    <a href="https://github.com/ohgeeceee/beemuu">Get the app</a>
+    <a href="https://github.com/ohgeeceee/beemuu/releases/latest">Download the app</a>
     <a href="https://github.com/ohgeeceee/beemuu-plugins/blob/main/CONTRIBUTING.md">Submit a plugin</a>
     <a href="registry.json">registry.json (API)</a>
+    <a href="app-release.json">app-release.json (API)</a>
   </nav>
 </header>
 <main>
@@ -144,6 +151,21 @@
   search.addEventListener('input', render);
   category.addEventListener('change', render);
   source.addEventListener('change', render);
+
+  // The header band is baked with the release the page was stamped for; refresh
+  // it from app-release.json so a stale HTML cache can never advertise an old
+  // version while the site behind it is current.
+  fetch('app-release.json')
+    .then(r => { if (!r.ok) throw new Error('release fetch failed'); return r.json(); })
+    .then(info => {
+      const band = document.getElementById('release-band');
+      if (!band || !info || !info.tag || info.tag === band.dataset.appTag) return;
+      document.getElementById('app-release-version').textContent = 'BeeEmUu ' + info.tag;
+      const link = document.getElementById('app-release-link');
+      if (link && info.releaseUrl) link.href = info.releaseUrl;
+      band.dataset.appTag = info.tag;
+    })
+    .catch(() => {});
 })();
 </script>
 </body>

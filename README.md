@@ -5,6 +5,43 @@ the open-source BMW diagnostics tool.
 
 **Browse the marketplace:** https://plugins.beemuu.com/
 
+## The site
+
+`plugins.beemuu.com` is published by [`.github/workflows/site.yml`](.github/workflows/site.yml),
+which runs on every push to `main`, hourly, and on demand. It:
+
+1. stamps the current BeeEmUu release into `app-release.json` and the header
+   band of `index.html`, using `tools/sync_app_release.py`;
+2. validates the manifests (`tools/validate.py`);
+3. builds and checks the published artifact (`tools/build_site.py`,
+   `tools/test_site_build.py`);
+4. deploys it to Pages.
+
+Pages here is a **workflow build**, so a push on its own publishes nothing —
+the site only changes when that workflow runs. Keeping the registry current
+means keeping that workflow green.
+
+The site states which app release it belongs to, in the header band and in
+`app-release.json` (public API):
+
+```json
+{
+  "schemaVersion": 1,
+  "app": "ohgeeceee/beemuu",
+  "tag": "v3.7.0",
+  "version": "3.7.0",
+  "releasedAt": "2026-10-15T04:03:47Z",
+  "releaseUrl": "https://github.com/ohgeeceee/beemuu/releases/tag/v3.7.0"
+}
+```
+
+To refresh it locally:
+
+```
+python3 tools/sync_app_release.py            # report only (exit 1 if stale)
+python3 tools/sync_app_release.py --write    # stamp the latest release
+```
+
 ## What is this?
 
 A community registry of Beemuu plugins. Anyone can:

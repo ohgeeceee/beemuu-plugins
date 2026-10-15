@@ -1,0 +1,117 @@
+name: Marketplace site
+
+# Publishes plugins.beemuu.com.
+#
+# Pages for this repository is configured for workflow builds, so nothing is
+# published unless a workflow uploads an artifact. There was no deploy path at
+# all before this file -- which is why the live registry.json sat a commit
+# behind the repository: every push validated cleanly and then quietly went
+# nowhere. This workflow both follows the app release and deploys the site.
+#
+# Following the app: a published BeeEmUu release is the only version the
+# project has, so the site states it in one place and derives everything else
+# from it -- tools/sync_app_release.py reads the latest published release,
+# writes app-release.json and stamps the header band. It runs on a schedule
+# (this repository receives no push when the app releases; the app workflow
+# cannot reach here without a token) and at the top of every deploy, and it
+# commits only when the release actually changed, so no empty commits.
+#
+# Note: GitHub disables scheduled workflows in a repository with no activity
+# for 60 days. If BeeEmUu goes quiet that long, re-enable it under Actions ->
+# Marketplace site -> Enable workflow, or dispatch it by hand.
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    outputs:
+      app_tag: ${{ steps.sync.outputs.app_tag }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Stamp the current BeeEmUu release
+        id: sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          python3 tools/sync_app_release.py --write > sync.log 2>&1
+          code=$?
+          cat sync.log
+          tag=$(sed -n 's/^APP_TAG=//p' sync.log | head -1)
+          if [ "$code" -ne 0 ]; then
+            echo "::warning::could not resolve the app release (exit $code); deploying with the version already in the repository"
+          fi
+          echo "app_tag=$tag" >> "$GITHUB_OUTPUT"
+          if [ -n "$(git status --porcelain -- app-release.json index.html)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add app-release.json index.html
+            git commit -m "site: follow BeeEmUu release ${tag:-unknown}"
+            git push origin HEAD:main
+          else
+            echo "site already names ${tag:-the current release}; nothing to commit"
+          fi
+
+  build:
+    needs: sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate plugin manifests
+        run: python3 tools/validate.py
+
+      - name: Build Pages artifact
+        run: python3 tools/build_site.py
+
+      - name: Test Pages artifact
+        run: python3 tools/test_site_build.py
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
