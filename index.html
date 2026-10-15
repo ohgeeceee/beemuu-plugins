@@ -152,19 +152,34 @@
   category.addEventListener('change', render);
   source.addEventListener('change', render);
 
-  // The header band is baked with the release the page was stamped for; refresh
-  // it from app-release.json so a stale HTML cache can never advertise an old
-  // version while the site behind it is current.
+  // The header band is baked with the release the page was stamped for. Two
+  // sources keep it honest, newest wins:
+  //   app-release.json -- what this deployment was validated against;
+  //   GitHub's API     -- the live truth, so a release posted between deploys
+  //                       is reflected on the next page load, not the next sync.
+  // Both are best-effort: a failure leaves the baked band standing.
+  function parts(tag) { return String(tag).replace(/^v/i, '').split('.').map(Number); }
+  function newer(a, b) {
+    const x = parts(a), y = parts(b);
+    for (let i = 0; i < 3; i++) if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) > (y[i] || 0);
+    return false;
+  }
+  function paint(tag, url) {
+    const band = document.getElementById('release-band');
+    const current = band && band.dataset.appTag;
+    if (!band || !tag || !newer(tag, current)) return;
+    document.getElementById('app-release-version').textContent = 'BeeEmUu ' + tag;
+    const link = document.getElementById('app-release-link');
+    if (link && url) link.href = url;
+    band.dataset.appTag = tag;
+  }
   fetch('app-release.json')
     .then(r => { if (!r.ok) throw new Error('release fetch failed'); return r.json(); })
-    .then(info => {
-      const band = document.getElementById('release-band');
-      if (!band || !info || !info.tag || info.tag === band.dataset.appTag) return;
-      document.getElementById('app-release-version').textContent = 'BeeEmUu ' + info.tag;
-      const link = document.getElementById('app-release-link');
-      if (link && info.releaseUrl) link.href = info.releaseUrl;
-      band.dataset.appTag = info.tag;
-    })
+    .then(info => paint(info.tag, info.releaseUrl))
+    .catch(() => {});
+  fetch('https://api.github.com/repos/ohgeeceee/beemuu/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
+    .then(r => { if (!r.ok) throw new Error('api fetch failed'); return r.json(); })
+    .then(rel => paint(rel.tag_name, rel.html_url))
     .catch(() => {});
 })();
 </script>

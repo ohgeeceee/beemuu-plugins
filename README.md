@@ -8,7 +8,7 @@ the open-source BMW diagnostics tool.
 ## The site
 
 `plugins.beemuu.com` is published by [`.github/workflows/site.yml`](.github/workflows/site.yml),
-which runs on every push to `main`, hourly, and on demand. It:
+which runs on every push to `main`, every 10 minutes, and on demand. It:
 
 1. stamps the current BeeEmUu release into `app-release.json` and the header
    band of `index.html`, using `tools/sync_app_release.py`;
@@ -34,6 +34,12 @@ The site states which app release it belongs to, in the header band and in
   "releaseUrl": "https://github.com/ohgeeceee/beemuu/releases/tag/v3.7.0"
 }
 ```
+
+The band is baked at deploy time and then corrected in the browser: the page
+reads `app-release.json` **and** GitHub's latest-release API, and shows the
+newer of the two. So a release posted between deploys is visible on the very
+next page load, while the deployed files (the registry, the checksums the app
+verifies) catch up on the next sync — at most ten minutes behind.
 
 To refresh it locally:
 
