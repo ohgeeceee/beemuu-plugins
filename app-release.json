@@ -1,9 +1,9 @@
 {
   "app": "ohgeeceee/beemuu",
-  "name": "BeeEmUu v5.0.1 \u2014 Connection Recovery",
-  "releaseUrl": "https://github.com/ohgeeceee/beemuu/releases/tag/v5.0.1",
-  "releasedAt": "2026-10-19T12:11:12Z",
+  "name": "BeeEmUu v5.1.0",
+  "releaseUrl": "https://github.com/ohgeeceee/beemuu/releases/tag/v5.1.0",
+  "releasedAt": "2026-11-27T13:23:20Z",
   "schemaVersion": 1,
-  "tag": "v5.0.1",
-  "version": "5.0.1"
+  "tag": "v5.1.0",
+  "version": "5.1.0"
 }
