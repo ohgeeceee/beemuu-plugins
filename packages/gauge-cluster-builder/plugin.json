@@ -1,0 +1,7 @@
+{
+  "id": "gauge-cluster-builder",
+  "name": "Gauge Cluster Builder",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["live-data", "filesystem"]
+}

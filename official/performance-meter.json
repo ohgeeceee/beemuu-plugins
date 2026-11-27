@@ -1,0 +1,27 @@
+{
+  "id": "performance-meter",
+  "name": "Performance Meter",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "GPS-free acceleration timing from the speed PID: auto launch detection, 0-100 / 100-200 km/h (or mph) splits, quarter-mile estimate, run history and CSV export.",
+  "category": "data",
+  "tags": [
+    "performance",
+    "0-100",
+    "quarter-mile",
+    "track"
+  ],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/performance-meter-1.0.0.zip",
+    "sha256": "fdf360d560a6dd80a06a51c674f5b9fa64b354826da99b1cdd47500032cb4182",
+    "sizeBytes": 3800
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": [
+    "live-data",
+    "filesystem"
+  ]
+}

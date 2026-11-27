@@ -1,0 +1,28 @@
+{
+  "id": "battery-registration",
+  "name": "Battery Registration",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "Guided new-battery registration for BMWs with IBS: pre-checks (host support, VIN, voltage), type/capacity selection, typed confirmation. Reserved coding-write capability.",
+  "category": "coding",
+  "tags": [
+    "battery",
+    "registration",
+    "ibs",
+    "coding"
+  ],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/battery-registration-1.0.0.zip",
+    "sha256": "5c4dae9744e25bdc61a293a7c3fcd72f146e994f076088379327e467213c664f",
+    "sizeBytes": 3363
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": [
+    "read-vin",
+    "live-data",
+    "coding-write"
+  ]
+}

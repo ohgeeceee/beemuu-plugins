@@ -1,0 +1,7 @@
+{
+  "id": "ecu-coding-backup",
+  "name": "ECU Coding Backup",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["read-vin", "read-dtc", "filesystem"]
+}

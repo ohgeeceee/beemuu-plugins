@@ -2,6 +2,60 @@
   "schemaVersion": 1,
   "plugins": [
     {
+      "id": "battery-registration",
+      "name": "Battery Registration",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Guided new-battery registration for BMWs with IBS: pre-checks (host support, VIN, voltage), type/capacity selection, typed confirmation. Reserved coding-write capability.",
+      "category": "coding",
+      "tags": [
+        "battery",
+        "registration",
+        "ibs",
+        "coding"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/battery-registration-1.0.0.zip",
+        "sha256": "5c4dae9744e25bdc61a293a7c3fcd72f146e994f076088379327e467213c664f",
+        "sizeBytes": 3363
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "read-vin",
+        "live-data",
+        "coding-write"
+      ]
+    },
+    {
+      "id": "dtc-explainer",
+      "name": "DTC Explainer",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Turns raw BMW fault codes into plain-English guidance: likely causes ranked, safe-to-drive verdict, first diagnostic steps and typical repair cost. Offline DB plus OBD-II family fallbacks.",
+      "category": "diagnostics",
+      "tags": [
+        "dtc",
+        "diagnosis",
+        "help",
+        "offline"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/dtc-explainer-1.0.0.zip",
+        "sha256": "17cb6d0631e61f0d3dc773c3346dbad7faf75e70fa19b37ef7bca40d052c2d17",
+        "sizeBytes": 6191
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "read-dtc"
+      ]
+    },
+    {
       "id": "dtc-report-pdf",
       "name": "DTC Report PDF",
       "version": "1.0.0",
@@ -29,6 +83,115 @@
       ]
     },
     {
+      "id": "ecu-coding-backup",
+      "name": "ECU Coding Backup",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Snapshot VIN, DTC state and ECU coding before anyone changes anything; diff snapshots to see exactly what changed. Strictly read-only on the vehicle.",
+      "category": "coding",
+      "tags": [
+        "coding",
+        "backup",
+        "safety",
+        "diff"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/ecu-coding-backup-1.0.0.zip",
+        "sha256": "667d1981fe82553f2fa22795a67d1df63731f0cd33c7f32ba569c279964a8c4a",
+        "sizeBytes": 3766
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "read-vin",
+        "read-dtc",
+        "filesystem"
+      ]
+    },
+    {
+      "id": "emission-readiness",
+      "name": "Emission Readiness",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "One-screen I/M readiness check: per-monitor status, MIL state, distance since last clear, and a plain likely-PASS / not-ready / likely-FAIL verdict before the smog station.",
+      "category": "diagnostics",
+      "tags": [
+        "emissions",
+        "smog",
+        "readiness",
+        "inspection"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/emission-readiness-1.0.0.zip",
+        "sha256": "52ad9c8a5765b86e7f06344024c436d1669128f00d671ed6b8db987a4297d9fc",
+        "sizeBytes": 3019
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "live-data",
+        "read-dtc"
+      ]
+    },
+    {
+      "id": "fuel-trim-health",
+      "name": "Fuel Trim Health",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Logs STFT/LTFT per bank with warm-engine filtering, computes session averages, and translates fuel trims into a plain-English verdict: vacuum leak, leaking injector, bank spread.",
+      "category": "diagnostics",
+      "tags": [
+        "fuel-trim",
+        "diagnosis",
+        "logging",
+        "csv"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/fuel-trim-health-1.0.0.zip",
+        "sha256": "19163003f56625eb678141727941368ccdfb3fccb133e3ae0d4983eb209e2448",
+        "sizeBytes": 3608
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "live-data",
+        "filesystem"
+      ]
+    },
+    {
+      "id": "gauge-cluster-builder",
+      "name": "Gauge Cluster Builder",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Build custom live dashboards: dial, bar and digital gauges for any PID with custom ranges, named saved layouts (daily/track/winter), and a starter layout out of the box.",
+      "category": "ui",
+      "tags": [
+        "gauges",
+        "dashboard",
+        "live-data",
+        "ui"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/gauge-cluster-builder-1.0.0.zip",
+        "sha256": "7cdfaf5d5db689480bcade31bbce171c7f4f4ed069bd25bf0cb838252a64bc35",
+        "sizeBytes": 3912
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "live-data",
+        "filesystem"
+      ]
+    },
+    {
       "id": "live-data-logger",
       "name": "Live Data Logger",
       "version": "1.0.0",
@@ -47,6 +210,88 @@
         "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.1/live-data-logger-1.0.0.zip",
         "sha256": "ba8bfd31ec4de5e6a1482082b51684eee7ac86589e7744d992f40a9d9e0e31c3",
         "sizeBytes": 1559
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "live-data",
+        "filesystem"
+      ]
+    },
+    {
+      "id": "live-data-watchdog",
+      "name": "Live Data Watchdog",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Threshold alarms on any live PID. Set min/max bands (coolant temp, boost, battery voltage); the panel flashes, a beep sounds and a notification fires when a value leaves its band.",
+      "category": "tools",
+      "tags": [
+        "live-data",
+        "alarm",
+        "monitoring",
+        "track"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/live-data-watchdog-1.0.0.zip",
+        "sha256": "b2907ede771ff6f0ef2d5d0963cd0405063c056c2044f32207f5bb19bd861bb2",
+        "sizeBytes": 3686
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "live-data",
+        "filesystem"
+      ]
+    },
+    {
+      "id": "maintenance-mind",
+      "name": "Maintenance Mind",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "Personalized maintenance plan from VIN, engine family and live odometer: per-item intervals, last-done stamps, km-remaining sorted by urgency. Enthusiast intervals, not lifetime-fill.",
+      "category": "tools",
+      "tags": [
+        "maintenance",
+        "schedule",
+        "service",
+        "odometer"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/maintenance-mind-1.0.0.zip",
+        "sha256": "9b2e57346a3775c55693fd0e6aef0e473399cda2063d8dceea07f2ea0b20754e",
+        "sizeBytes": 4455
+      },
+      "minAppVersion": "2.2.0",
+      "license": "GPL-3.0-only",
+      "capabilities": [
+        "read-vin",
+        "live-data",
+        "filesystem"
+      ]
+    },
+    {
+      "id": "performance-meter",
+      "name": "Performance Meter",
+      "version": "1.0.0",
+      "author": "ohgeeceee",
+      "official": true,
+      "description": "GPS-free acceleration timing from the speed PID: auto launch detection, 0-100 / 100-200 km/h (or mph) splits, quarter-mile estimate, run history and CSV export.",
+      "category": "data",
+      "tags": [
+        "performance",
+        "0-100",
+        "quarter-mile",
+        "track"
+      ],
+      "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+      "download": {
+        "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/performance-meter-1.0.0.zip",
+        "sha256": "fdf360d560a6dd80a06a51c674f5b9fa64b354826da99b1cdd47500032cb4182",
+        "sizeBytes": 3800
       },
       "minAppVersion": "2.2.0",
       "license": "GPL-3.0-only",

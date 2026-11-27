@@ -1,0 +1,7 @@
+{
+  "id": "fuel-trim-health",
+  "name": "Fuel Trim Health",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["live-data", "filesystem"]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "emission-readiness",
+  "name": "Emission Readiness",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["live-data", "read-dtc"]
+}

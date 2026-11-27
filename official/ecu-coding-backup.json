@@ -1,0 +1,28 @@
+{
+  "id": "ecu-coding-backup",
+  "name": "ECU Coding Backup",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "Snapshot VIN, DTC state and ECU coding before anyone changes anything; diff snapshots to see exactly what changed. Strictly read-only on the vehicle.",
+  "category": "coding",
+  "tags": [
+    "coding",
+    "backup",
+    "safety",
+    "diff"
+  ],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/ecu-coding-backup-1.0.0.zip",
+    "sha256": "667d1981fe82553f2fa22795a67d1df63731f0cd33c7f32ba569c279964a8c4a",
+    "sizeBytes": 3766
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": [
+    "read-vin",
+    "read-dtc",
+    "filesystem"
+  ]
+}

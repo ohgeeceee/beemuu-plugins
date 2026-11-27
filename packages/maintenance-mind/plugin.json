@@ -1,0 +1,7 @@
+{
+  "id": "maintenance-mind",
+  "name": "Maintenance Mind",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["read-vin", "live-data", "filesystem"]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "gauge-cluster-builder",
+  "name": "Gauge Cluster Builder",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "Build custom live dashboards: dial, bar and digital gauges for any PID with custom ranges, named saved layouts (daily/track/winter), and a starter layout out of the box.",
+  "category": "ui",
+  "tags": [
+    "gauges",
+    "dashboard",
+    "live-data",
+    "ui"
+  ],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/gauge-cluster-builder-1.0.0.zip",
+    "sha256": "7cdfaf5d5db689480bcade31bbce171c7f4f4ed069bd25bf0cb838252a64bc35",
+    "sizeBytes": 3912
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": [
+    "live-data",
+    "filesystem"
+  ]
+}

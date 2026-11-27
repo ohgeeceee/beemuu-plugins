@@ -1,0 +1,7 @@
+{
+  "id": "battery-registration",
+  "name": "Battery Registration",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["read-vin", "live-data", "coding-write"]
+}

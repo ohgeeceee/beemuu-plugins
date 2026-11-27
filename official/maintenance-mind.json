@@ -1,0 +1,28 @@
+{
+  "id": "maintenance-mind",
+  "name": "Maintenance Mind",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "Personalized maintenance plan from VIN, engine family and live odometer: per-item intervals, last-done stamps, km-remaining sorted by urgency. Enthusiast intervals, not lifetime-fill.",
+  "category": "tools",
+  "tags": [
+    "maintenance",
+    "schedule",
+    "service",
+    "odometer"
+  ],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/maintenance-mind-1.0.0.zip",
+    "sha256": "9b2e57346a3775c55693fd0e6aef0e473399cda2063d8dceea07f2ea0b20754e",
+    "sizeBytes": 4455
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": [
+    "read-vin",
+    "live-data",
+    "filesystem"
+  ]
+}

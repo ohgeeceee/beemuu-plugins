@@ -1,0 +1,27 @@
+{
+  "id": "live-data-watchdog",
+  "name": "Live Data Watchdog",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "Threshold alarms on any live PID. Set min/max bands (coolant temp, boost, battery voltage); the panel flashes, a beep sounds and a notification fires when a value leaves its band.",
+  "category": "tools",
+  "tags": [
+    "live-data",
+    "alarm",
+    "monitoring",
+    "track"
+  ],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/live-data-watchdog-1.0.0.zip",
+    "sha256": "b2907ede771ff6f0ef2d5d0963cd0405063c056c2044f32207f5bb19bd861bb2",
+    "sizeBytes": 3686
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": [
+    "live-data",
+    "filesystem"
+  ]
+}

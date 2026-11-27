@@ -1,0 +1,7 @@
+{
+  "id": "dtc-explainer",
+  "name": "DTC Explainer",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "capabilities": ["read-dtc"]
+}

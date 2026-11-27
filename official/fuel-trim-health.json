@@ -1,0 +1,27 @@
+{
+  "id": "fuel-trim-health",
+  "name": "Fuel Trim Health",
+  "version": "1.0.0",
+  "author": "ohgeeceee",
+  "official": true,
+  "description": "Logs STFT/LTFT per bank with warm-engine filtering, computes session averages, and translates fuel trims into a plain-English verdict: vacuum leak, leaking injector, bank spread.",
+  "category": "diagnostics",
+  "tags": [
+    "fuel-trim",
+    "diagnosis",
+    "logging",
+    "csv"
+  ],
+  "homepage": "https://github.com/ohgeeceee/beemuu-plugins",
+  "download": {
+    "url": "https://github.com/ohgeeceee/beemuu-plugins/releases/download/v1.2/fuel-trim-health-1.0.0.zip",
+    "sha256": "19163003f56625eb678141727941368ccdfb3fccb133e3ae0d4983eb209e2448",
+    "sizeBytes": 3608
+  },
+  "minAppVersion": "2.2.0",
+  "license": "GPL-3.0-only",
+  "capabilities": [
+    "live-data",
+    "filesystem"
+  ]
+}
