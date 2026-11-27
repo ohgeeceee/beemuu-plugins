@@ -55,6 +55,29 @@ A community registry of Beemuu plugins. Anyone can:
 - **Download** plugins made by the Beemuu team and the community
 - **Submit** their own plugin via a pull request
 
+## Install from inside the app
+
+The easiest way to use plugins is built into Beemuu itself — no manual
+downloads:
+
+1. Open the **Plugins** tab in the app.
+2. Scroll to **Marketplace** — the app lists everything in this registry,
+   with each plugin's capabilities shown up front.
+3. Click **Install**. The download is SHA-256-verified against this registry
+   before it is extracted, and a consent screen shows exactly which
+   capabilities the plugin gets (and which are refused) before anything is
+   stored.
+4. Installed plugins stay **disabled** until you enable them. Enable, open,
+   update, or remove them from the same Marketplace section — update badges
+   appear automatically when a newer version is published here.
+
+Safety posture in the current app build: plugins run in an isolated frame
+with no network access, panels render inside that frame, "file saves" arrive
+as ordinary browser downloads, and vehicle writes (`clear-dtc`,
+`coding-write`, `ecu-flash`) are never granted. The registry URL can be
+pointed at a staging copy via `window.BEEMUU_MARKETPLACE_URL` for
+development.
+
 ## Submit a plugin
 
 1. Fork this repo.
